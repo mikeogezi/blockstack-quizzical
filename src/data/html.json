@@ -1,0 +1,417 @@
+[
+  {
+    "id": "2eb0b5c1-5a7d-4237-a444-8c363f1c425f",
+    "question": "What does HTML stand for?",
+    "options": [
+      "Hyper Text Markup Language",
+      "Home Tool Markup Language",
+      "Hyperlinks and Text Markup Language"
+    ],
+    "correct": "Hyper Text Markup Language"
+  },
+  {
+    "id": "6c0eeb74-c86d-48f0-9dd5-ed3ab458a5ba",
+    "question": "Who is making the Web standards?",
+    "options": [
+      "The World Wide Web Consortium",
+      "Google",
+      "Microsoft",
+      "Mozilla"
+    ],
+    "correct": "The World Wide Web Consortium"
+  },
+  {
+    "id": "f4df9f6c-ec6b-458f-895f-0d55b3b20df2",
+    "question": "Choose the correct HTML element for the largest heading:",
+    "options": [
+      "<h1>",
+      "<head>",
+      "<h6>",
+      "<heading>"
+    ],
+    "correct": "<h1>"
+  },
+  {
+    "id": "decf90a6-4dbb-438e-ae0d-7e8a0a9b44fb",
+    "question": "What is the correct HTML element for inserting a line break?",
+    "options": [
+      "<br>",
+      "<break>",
+      "<lb>"
+    ],
+    "correct": "<br>"
+  },
+  {
+    "id": "76fdeaf9-72f9-4116-becf-be4427c3a849",
+    "question": "What is the correct HTML for adding a background color?",
+    "options": [
+      "<body style=\"background-color:yellow;\">",
+      "<background>yellow</background>",
+      "<body bg=\"yellow\">"
+    ],
+    "correct": "<body style=\"background-color:yellow;\">"
+  },
+  {
+    "id": "cf0819e6-6d62-45c3-bd42-21685cf5c610",
+    "question": "Choose the correct HTML element to define important text",
+    "options": [
+      "<strong>",
+      "<i>",
+      "<b>",
+      "<important>"
+    ],
+    "correct": "<strong>"
+  },
+  {
+    "id": "39a5beaf-8fd7-4cae-81a8-60d940c823a0",
+    "question": "Choose the correct HTML element to define emphasized text",
+    "options": [
+      "<em>",
+      "<i>",
+      "<italic>"
+    ],
+    "correct": "<em>"
+  },
+  {
+    "id": "402a365d-caea-4f39-90eb-1cdb2b24d37a",
+    "question": "What is the correct HTML for creating a hyperlink?",
+    "options": [
+      "<a href=\"http://www.w3schools.com\">W3Schools</a>",
+      "<a url=\"http://www.w3schools.com\">W3Schools.com</a>",
+      "<a name=\"http://www.w3schools.com\">W3Schools.com</a>",
+      "<a>http://www.w3schools.com</a>"
+    ],
+    "correct": "<a href=\"http://www.w3schools.com\">W3Schools</a>"
+  },
+  {
+    "id": "0b977c2b-d673-4e3e-b054-285b66bfce2d",
+    "question": "Which character is used to indicate an end tag?",
+    "options": [
+      "/",
+      "<",
+      "^",
+      "*"
+    ],
+    "correct": "/"
+  },
+  {
+    "id": "d83c1c49-4d2e-49ef-be29-6513dd727e45",
+    "question": "How can you open a link in a new tab/browser window?",
+    "options": [
+      "<a href=\"url\" target=\"_blank\">",
+      "<a href=\"url\" new>",
+      "<a href=\"url\" target=\"new\">"
+    ],
+    "correct": "<a href=\"url\" target=\"_blank\">"
+  },
+  {
+    "id": "226f4bcf-6e40-4979-a49d-13e75b89a8a5",
+    "question": "Which of these elements are all <table> elements?",
+    "options": [
+      "<table><tr><td>",
+      "<thead><body><tr>",
+      "<table><head><tfoot>",
+      "<table><tr><tt>"
+    ],
+    "correct": "<table><tr><td>"
+  },
+  {
+    "id": "61aecc4b-cfe9-4f9f-bd39-5e63b4ca8cf0",
+    "question": "Inline elements are normally displayed without starting a new line.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "d2f5adbf-8122-4fda-b6b0-a7641552a271",
+    "question": "How can you make a numbered list?",
+    "options": [
+      "<ol>",
+      "<list>",
+      "<dl>",
+      "<ul>"
+    ],
+    "correct": "<ol>"
+  },
+  {
+    "id": "c5ff0e01-828a-410b-8750-9ee25eb21b1e",
+    "question": "How can you make a bulleted list?",
+    "options": [
+      "<ul>",
+      "<dl>",
+      "<ol>",
+      "<list>"
+    ],
+    "correct": "<ul>"
+  },
+  {
+    "id": "018d6fde-df23-4bfa-aa3a-059821d1c998",
+    "question": "What is the correct HTML for making a checkbox?",
+    "options": [
+      "<input type=\"checkbox\">",
+      "<input type=\"check\">",
+      "<check>",
+      "<checkbox>"
+    ],
+    "correct": "<input type=\"checkbox\">"
+  },
+  {
+    "id": "56afb7f6-416d-41e0-b33f-2caf756ab382",
+    "question": "What is the correct HTML for making a text input field?",
+    "options": [
+      "<input type=\"text\">",
+      "<textfield>",
+      "<input type=\"textfield\">",
+      "<textinput type=\"text\">"
+    ],
+    "correct": "<input type=\"text\">"
+  },
+  {
+    "id": "47eb7572-cc53-478a-9805-8206f5ef996b",
+    "question": "What is the correct HTML for making a drop-down list?",
+    "options": [
+      "<input type=\"dropdown\">",
+      "<select>",
+      "<list>",
+      "<input type=\"list\">"
+    ],
+    "correct": "<select>"
+  },
+  {
+    "id": "3a389bc2-1406-4c62-a382-8af40f4cf199",
+    "question": "What is the correct HTML for making a text area?",
+    "options": [
+      "<input type=\"textarea\">",
+      "<textarea>",
+      "<input type=\"textbox\">"
+    ],
+    "correct": "<textarea>"
+  },
+  {
+    "id": "a38bbde0-3635-4a35-b781-d48e8bc19f3a",
+    "question": "What is the correct HTML for inserting an image?",
+    "options": [
+      "<img href=\"image.gif\" alt=\"MyImage\">",
+      "<image src=\"image.gif\" alt=\"MyImage\">",
+      "<img alt=\"MyImage\">image.gif</img>",
+      "<img src=\"image.gif\" alt=\"MyImage\">"
+    ],
+    "correct": "<img src=\"image.gif\" alt=\"MyImage\">"
+  },
+  {
+    "id": "1b331e75-0c1a-43ca-9432-9c52c31c6573",
+    "question": "What is the correct HTML for inserting a background image?",
+    "options": [
+      "<body bg=\"background.gif\">",
+      "<background img=\"background.gif\">",
+      "<body style=\"background-image:url(background.gif)\">"
+    ],
+    "correct": "<body style=\"background-image:url(background.gif)\">"
+  },
+  {
+    "id": "3dd622c6-f369-4d92-b028-05859e196f19",
+    "question": "An <iframe> is used to display a web page within a web page.",
+    "options": [
+      "False",
+      "There is no such thing as an <iframe>",
+      "True"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "92747f81-01af-4801-b899-cc15ee9ccde8",
+    "question": "HTML comments start with <!-- and end with -->",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "79b26694-a4d3-4cd6-ba71-d0fae796231a",
+    "question": "Block elements are normally displayed without starting a new line.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correct": "False"
+  },
+  {
+    "id": "c9fcacff-744b-4e34-9dcc-91a0a84323c7",
+    "question": "Which HTML element defines the title of a document?",
+    "options": [
+      "<head>",
+      "<meta>",
+      "<title>"
+    ],
+    "correct": "<title>"
+  },
+  {
+    "id": "5caba78a-abbf-4e5f-bcc5-8bbda283f51c",
+    "question": "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
+    "options": [
+      "longdesc",
+      "src",
+      "alt",
+      "title"
+    ],
+    "correct": "alt"
+  },
+  {
+    "id": "6b77dffb-b559-40fe-92b2-ad075bb69238",
+    "question": "Which doctype is correct for HTML5?",
+    "options": [
+      "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 5.0//EN\" \"http://www.w3.org/TR/html5/strict.dtd\">",
+      "<!DOCTYPE HTML5>",
+      "<!DOCTYPE html>"
+    ],
+    "correct": "<!DOCTYPE html>"
+  },
+  {
+    "id": "8d3c674e-1597-4dd8-a8cf-79e53d1611e9",
+    "question": "Which HTML element is used to specify a footer for a document or section?",
+    "options": [
+      "<bottom>",
+      "<section>",
+      "<footer>"
+    ],
+    "correct": "<footer>"
+  },
+  {
+    "id": "5c52da1d-7e55-4478-919a-098f50807b12",
+    "question": "In HTML, you can embed SVG elements directly into an HTML page.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "28a86e96-b6c9-4a3f-9c30-96c857ef2efa",
+    "question": "What is the correct HTML element for playing video files?",
+    "options": [
+      "<video>",
+      "<media>",
+      "<movie>"
+    ],
+    "correct": "<video>"
+  },
+  {
+    "id": "198cc363-d69f-49ed-ae7f-5c61863868af",
+    "question": "What is the correct HTML element for playing audio files?",
+    "options": [
+      "<mp3>",
+      "<audio>",
+      "<sound>"
+    ],
+    "correct": "<audio>"
+  },
+  {
+    "id": "2b45da2d-6c41-46c1-b8e3-3f55f06fb4a9",
+    "question": "The HTML global attribute, \"contenteditable\" is used to:",
+    "options": [
+      "Specify whether the content of an element should be editable or not",
+      "Update content from the server",
+      "Return the position of the first found occurrence of content inside a string",
+      "Specifies a context menu for an element. The menu appears when a user right-clicks on the element"
+    ],
+    "correct": "Specify whether the content of an element should be editable or not"
+  },
+  {
+    "id": "d0ed9c7f-08f7-43f5-8af3-49050fef412e",
+    "question": "In HTML, onblur and onfocus are:",
+    "options": [
+      "Event attributes",
+      "HTML elements",
+      "Style attributes"
+    ],
+    "correct": "Event attributes"
+  },
+  {
+    "id": "b76d9964-5607-4888-b23b-7866650f3f73",
+    "question": "Graphics defined by SVG is in which format?",
+    "options": [
+      "CSS",
+      "XML",
+      "HTML"
+    ],
+    "correct": "XML"
+  },
+  {
+    "id": "5e886ba0-96ec-4b93-952b-b69e27c2416a",
+    "question": "The HTML <canvas> element is used to:",
+    "options": [
+      "display database records",
+      "manipulate data in MySQL",
+      "create draggable elements",
+      "draw graphics"
+    ],
+    "correct": "draw graphics"
+  },
+  {
+    "id": "b63d7d26-2390-4a9a-b9aa-d1038141a0c9",
+    "question": "In HTML, which attribute is used to specify that an input field must be filled out?",
+    "options": [
+      "validate",
+      "placeholder",
+      "formvalidate",
+      "required"
+    ],
+    "correct": "required"
+  },
+  {
+    "id": "504133bb-dfab-452f-abe2-ddbd7208af13",
+    "question": "Which input type defines a slider control?",
+    "options": [
+      "controls",
+      "slider",
+      "search",
+      "range"
+    ],
+    "correct": "range"
+  },
+  {
+    "id": "d825a6cb-eccc-479a-8aaf-28657fa39432",
+    "question": "Which HTML element is used to display a scalar measurement within a range?",
+    "options": [
+      "<range>",
+      "<gauge>",
+      "<meter>",
+      "<measure>"
+    ],
+    "correct": "<meter>"
+  },
+  {
+    "id": "7263733b-89f8-4569-a125-fd4d29bf1a19",
+    "question": "Which HTML element defines navigation links?",
+    "options": [
+      "<navigate>",
+      "<navigation>",
+      "<nav>"
+    ],
+    "correct": "<nav>"
+  },
+  {
+    "id": "e03066a6-4343-480c-b4b9-9265ffd10028",
+    "question": "In HTML, what does the <aside> element define?",
+    "options": [
+      "Content aside from the page content",
+      "The ASCII character-set; to send information between computers on the Internet",
+      "A navigation list to be shown at the left side of the page"
+    ],
+    "correct": "Content aside from the page content"
+  },
+  {
+    "id": "3c742e55-b19f-40f4-9f8a-d5eb344e7aac",
+    "question": "Which HTML element is used to specify a header for a document or section?",
+    "options": [
+      "<top>",
+      "<header>",
+      "<head>",
+      "<section>"
+    ],
+    "correct": "<header>"
+  }
+]

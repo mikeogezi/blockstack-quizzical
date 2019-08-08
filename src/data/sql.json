@@ -1,0 +1,262 @@
+[
+  {
+    "id": "6e76ff60-eb43-4a10-9339-4ab4fff07195",
+    "question": "What does SQL stand for?",
+    "options": [
+      "Structured Query Language",
+      "Structured Question Language",
+      "Strong Question Language"
+    ],
+    "correct": "Structured Query Language"
+  },
+  {
+    "id": "ffccb6c8-1ea4-400f-9b80-c7b8306367e9",
+    "question": "Which SQL statement is used to extract data from a database?",
+    "options": [
+      "SELECT",
+      "EXTRACT",
+      "GET",
+      "OPEN"
+    ],
+    "correct": "SELECT"
+  },
+  {
+    "id": "ebd83201-223f-4642-acbf-584b18b24df8",
+    "question": "Which SQL statement is used to update data in a database?",
+    "options": [
+      "UPDATE",
+      "MODIFY",
+      "SAVE",
+      "SAVE AS"
+    ],
+    "correct": "UPDATE"
+  },
+  {
+    "id": "29385e97-ee08-4fea-bb95-b3109c854673",
+    "question": "Which SQL statement is used to delete data from a database?",
+    "options": [
+      "DELETE",
+      "REMOVE",
+      "COLLAPSE"
+    ],
+    "correct": "DELETE"
+  },
+  {
+    "id": "2ecaeee9-db44-4d8c-8d64-6e73fc5ffa9b",
+    "question": "Which SQL statement is used to insert new data in a database?",
+    "options": [
+      "INSERT INTO",
+      "ADD NEW",
+      "INSERT NEW",
+      "ADD RECORD"
+    ],
+    "correct": "INSERT INTO"
+  },
+  {
+    "id": "5c142835-0d32-4fb0-9098-ae5e3e321e06",
+    "question": "With SQL, how do you select a column named \"FirstName\" from a table named \"Persons\"?",
+    "options": [
+      "SELECT FirstName FROM Persons",
+      "EXTRACT FirstName FROM Persons",
+      "SELECT Persons.FirstName"
+    ],
+    "correct": "SELECT FirstName FROM Persons"
+  },
+  {
+    "id": "7ff213e1-0395-4413-a7af-7b4cf86ca196",
+    "question": "With SQL, how do you select all the columns from a table named \"Persons\"?",
+    "options": [
+      "SELECT * FROM Persons",
+      "SELECT *.Persons",
+      "SELECT [all] FROM Persons",
+      "SELECT Persons"
+    ],
+    "correct": "SELECT * FROM Persons"
+  },
+  {
+    "id": "dec9d305-87dd-4491-9556-bc5254bca6f5",
+    "question": "With SQL, how do you select all the records from a table named \"Persons\" where the value of the column \"FirstName\" is \"Peter\"?",
+    "options": [
+      "SELECT * FROM Persons WHERE FirstName='Peter'",
+      "SELECT * FROM Persons WHERE FirstName<>'Peter'",
+      "SELECT [all] FROM Persons WHERE FirstName LIKE 'Peter'",
+      "SELECT [all] FROM Persons WHERE FirstName='Peter'"
+    ],
+    "correct": "SELECT * FROM Persons WHERE FirstName='Peter'"
+  },
+  {
+    "id": "755649cc-7a29-47e6-bc75-05eef8c715e8",
+    "question": "With SQL, how do you select all the records from a table named \"Persons\" where the value of the column \"FirstName\" starts with an \"a\"?",
+    "options": [
+      "SELECT * FROM Persons WHERE FirstName LIKE 'a%'",
+      "SELECT * FROM Persons WHERE FirstName='a'",
+      "SELECT * FROM Persons WHERE FirstName LIKE '%a'",
+      "SELECT * FROM Persons WHERE FirstName='%a%'"
+    ],
+    "correct": "SELECT * FROM Persons WHERE FirstName LIKE 'a%'"
+  },
+  {
+    "id": "03a39bcb-1ce5-46fb-afce-0c60f06bba06",
+    "question": "The OR operator displays a record if ANY conditions listed are true. The AND operator displays a record if ALL of the conditions listed are true",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "8d67c381-1572-4ed9-85a6-172c78d9baf4",
+    "question": "With SQL, how do you select all the records from a table named \"Persons\" where the \"FirstName\" is \"Peter\" and the \"LastName\" is \"Jackson\"?",
+    "options": [
+      "SELECT * FROM Persons WHERE FirstName='Peter' AND LastName='Jackson'",
+      "SELECT FirstName='Peter', LastName='Jackson' FROM Persons",
+      "SELECT * FROM Persons WHERE FirstName<>'Peter' AND LastName<>'Jackson'"
+    ],
+    "correct": "SELECT * FROM Persons WHERE FirstName='Peter' AND LastName='Jackson'"
+  },
+  {
+    "id": "e2acd0e9-8991-42d2-bfab-abfbb5d8f0d5",
+    "question": "With SQL, how do you select all the records from a table named \"Persons\" where the \"LastName\" is alphabetically between (and including) \"Hansen\" and \"Pettersen\"?",
+    "options": [
+      "SELECT * FROM Persons WHERE LastName>'Hansen' AND LastName<'Pettersen'",
+      "SELECT LastName>'Hansen' AND LastName<'Pettersen' FROM Persons",
+      "SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'"
+    ],
+    "correct": "SELECT * FROM Persons WHERE LastName BETWEEN 'Hansen' AND 'Pettersen'"
+  },
+  {
+    "id": "41d5e788-15f1-4508-94e3-6503e97d10fd",
+    "question": "Which SQL statement is used to return only different values?",
+    "options": [
+      "SELECT DISTINCT",
+      "SELECT DIFFERENT",
+      "SELECT UNIQUE"
+    ],
+    "correct": "SELECT DISTINCT"
+  },
+  {
+    "id": "f072a884-e4a5-4875-80c3-299a7383e194",
+    "question": "Which SQL keyword is used to sort the result-set?",
+    "options": [
+      "ORDER BY",
+      "SORT BY",
+      "SORT",
+      "ORDER"
+    ],
+    "correct": "ORDER BY"
+  },
+  {
+    "id": "a884eb58-6344-4758-b71d-a5966eef0bb3",
+    "question": "With SQL, how can you return all the records from a table named \"Persons\" sorted descending by \"FirstName\"?",
+    "options": [
+      "SELECT * FROM Persons ORDER BY FirstName DESC",
+      "SELECT * FROM Persons SORT BY 'FirstName' DESC",
+      "SELECT * FROM Persons SORT 'FirstName' DESC",
+      "SELECT * FROM Persons ORDER FirstName DESC"
+    ],
+    "correct": "SELECT * FROM Persons ORDER BY FirstName DESC"
+  },
+  {
+    "id": "c53ebea3-a1ef-4d66-9fa9-f30f4956d1a6",
+    "question": "With SQL, how can you insert a new record into the \"Persons\" table?",
+    "options": [
+      "INSERT VALUES ('Jimmy', 'Jackson') INTO Persons",
+      "INSERT ('Jimmy', 'Jackson') INTO Persons",
+      "INSERT INTO Persons VALUES ('Jimmy', 'Jackson')"
+    ],
+    "correct": "INSERT INTO Persons VALUES ('Jimmy', 'Jackson')"
+  },
+  {
+    "id": "c3233a22-a2c2-4bd1-98d9-0ef783888be8",
+    "question": "With SQL, how can you insert \"Olsen\" as the \"LastName\" in the \"Persons\" table?",
+    "options": [
+      "INSERT ('Olsen') INTO Persons (LastName)",
+      "INSERT INTO Persons ('Olsen') INTO LastName",
+      "INSERT INTO Persons (LastName) VALUES ('Olsen')"
+    ],
+    "correct": "INSERT INTO Persons (LastName) VALUES ('Olsen')"
+  },
+  {
+    "id": "1f46d751-b7da-40c6-a02e-c92266028956",
+    "question": "How can you change \"Hansen\" into \"Nilsen\" in the \"LastName\" column in the Persons table?",
+    "options": [
+      "UPDATE Persons SET LastName='Nilsen' WHERE LastName='Hansen'",
+      "UPDATE Persons SET LastName='Hansen' INTO LastName='Nilsen'",
+      "MODIFY Persons SET LastName='Hansen' INTO LastName='Nilsen",
+      "MODIFY Persons SET LastName='Nilsen' WHERE LastName='Hansen'"
+    ],
+    "correct": "UPDATE Persons SET LastName='Nilsen' WHERE LastName='Hansen'"
+  },
+  {
+    "id": "4286b86c-3d69-437a-b84d-d019e98fb725",
+    "question": "With SQL, how can you delete the records where the \"FirstName\" is \"Peter\" in the Persons Table?",
+    "options": [
+      "DELETE FROM Persons WHERE FirstName = 'Peter'",
+      "DELETE FirstName='Peter' FROM Persons",
+      "DELETE ROW FirstName='Peter' FROM Persons"
+    ],
+    "correct": "DELETE FROM Persons WHERE FirstName = 'Peter'"
+  },
+  {
+    "id": "7e9d56f8-60f1-422d-bddf-46e9e67ab544",
+    "question": "With SQL, how can you return the number of records in the \"Persons\" table?",
+    "options": [
+      "SELECT COUNT(*) FROM Persons",
+      "SELECT NO(*) FROM Persons",
+      "SELECT LEN(*) FROM Persons",
+      "SELECT COLUMNS(*) FROM Persons"
+    ],
+    "correct": "SELECT COUNT(*) FROM Persons"
+  },
+  {
+    "id": "1c2b46b1-aa30-4192-b444-b2a61eb3acb8",
+    "question": "What is the most common type of join?",
+    "options": [
+      "INNER JOIN",
+      "JOINED",
+      "INSIDE JOIN",
+      "JOINED TABLE"
+    ],
+    "correct": "INNER JOIN"
+  },
+  {
+    "id": "25fdbc5d-34f1-45f4-bca6-853affb29f10",
+    "question": "Which operator is used to select values within a range?",
+    "options": [
+      "BETWEEN",
+      "RANGE",
+      "WITHIN"
+    ],
+    "correct": "BETWEEN"
+  },
+  {
+    "id": "76b1ce54-7b94-44d2-9e69-606ddf995f81",
+    "question": "The NOT NULL constraint enforces a column to not accept null values.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "d56da210-db01-41d9-a0b9-3979f88e845d",
+    "question": "Which operator is used to search for a specified pattern in a column?",
+    "options": [
+      "LIKE",
+      "FROM",
+      "GET"
+    ],
+    "correct": "LIKE"
+  },
+  {
+    "id": "411f855c-3191-4b9e-89d8-7676e0e3914e",
+    "question": "Which SQL statement is used to create a table in a database?",
+    "options": [
+      "CREATE TABLE",
+      "CREATE DATABASE TAB",
+      "CREATE DATABASE TABLE",
+      "CREATE DB"
+    ],
+    "correct": "CREATE TABLE"
+  }
+]

@@ -1,0 +1,259 @@
+[
+  {
+    "id": "b4149169-865e-45cc-8a33-942671e524b5",
+    "question": "Inside which HTML element do we put the JavaScript?",
+    "options": [
+      "<script>",
+      "<scripting>",
+      "<javascript>",
+      "<js>"
+    ],
+    "correct": "<script>"
+  },
+  {
+    "id": "a0b88aa2-67b3-420c-90f7-d9372e7bd5af",
+    "question": "What is the correct JavaScript syntax to change the content of this HTML element? <p id=\"demo\">This is a demonstration.</p>",
+    "options": [
+      "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
+      "document.getElementByName(\"p\").innerHTML = \"Hello World!\";",
+      "document.getElement(\"p\").innerHTML = \"Hello World!\";",
+      "#demo.innerHTML = \"Hello World!\";"
+    ],
+    "correct": "document.getElementById(\"demo\").innerHTML = \"Hello World!\";"
+  },
+  {
+    "id": "c0a90092-1509-4fa1-9db6-0332e7a938d2",
+    "question": "Where is the correct place to insert a JavaScript?",
+    "options": [
+      "The <head> section",
+      "Both the <head> section and the <body> section are correct",
+      "The <body> section"
+    ],
+    "correct": "Both the <head> section and the <body> section are correct"
+  },
+  {
+    "id": "02131f29-815c-4239-9b75-2dbce2782ad3",
+    "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
+    "options": [
+      "<script src=\"xxx.js\">",
+      "<script name=\"xxx.js\">",
+      "<script href=\"xxx.js\">"
+    ],
+    "correct": "<script src=\"xxx.js\">"
+  },
+  {
+    "id": "19930dae-b042-421a-986a-9e959aac79fa",
+    "question": "The external JavaScript file must contain the <script> tag.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correct": "False"
+  },
+  {
+    "id": "e9e24e14-044f-4dba-a4c9-37f0fc6fd42a",
+    "question": "How do you write \"Hello World\" in an alert box?",
+    "options": [
+      "alert(\"Hello World\");",
+      "msgBox(\"Hello World\");",
+      "msg(\"Hello World\");",
+      "alertBox(\"Hello World\");"
+    ],
+    "correct": "alert(\"Hello World\");"
+  },
+  {
+    "id": "20b0d0a6-89fd-467f-b323-f31722540863",
+    "question": "How do you create a function in JavaScript?",
+    "options": [
+      "function myFunction()",
+      "function = myFunction()",
+      "function:myFunction()"
+    ],
+    "correct": "function myFunction()"
+  },
+  {
+    "id": "05f3e539-6b8a-4076-b572-1c967c1afbc7",
+    "question": "How do you call a function named \"myFunction\"?",
+    "options": [
+      "myFunction()",
+      "call myFunction()",
+      "call function myFunction()"
+    ],
+    "correct": "myFunction()"
+  },
+  {
+    "id": "86e7dbec-b863-4d16-9c96-10f0f0d82139",
+    "question": "How to write an IF statement in JavaScript?",
+    "options": [
+      "if (i == 5)",
+      "if i == 5 then",
+      "if i = 5 then",
+      "if i = 5"
+    ],
+    "correct": "if (i == 5)"
+  },
+  {
+    "id": "d4729eeb-c73a-4a66-b5ad-44b12d23adbf",
+    "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
+    "options": [
+      "if (i != 5)",
+      "if i <> 5",
+      "if (i <> 5)",
+      "if i =! 5 then"
+    ],
+    "correct": "if (i != 5)"
+  },
+  {
+    "id": "7bc8a4e0-7808-4e11-b62a-546770d3094a",
+    "question": "How does a WHILE loop start?",
+    "options": [
+      "while (i <= 10)",
+      "while (i <= 10; i++)",
+      "while i = 1 to 10"
+    ],
+    "correct": "while (i <= 10)"
+  },
+  {
+    "id": "732ee70d-34a7-4cf7-8eb1-88139665b81c",
+    "question": "How does a FOR loop start?",
+    "options": [
+      "for (i = 0; i <= 5; i++)",
+      "for (i = 0; i <= 5)",
+      "for (i <= 5; i++)",
+      "for i = 1 to 5"
+    ],
+    "correct": "for (i = 0; i <= 5; i++)"
+  },
+  {
+    "id": "d9c924c2-684f-4979-af8a-8a8ca24f6a28",
+    "question": "How can you add a comment in a JavaScript?",
+    "options": [
+      "//This is a comment",
+      "'This is a comment",
+      "<!--This is a comment-->"
+    ],
+    "correct": "//This is a comment"
+  },
+  {
+    "id": "c793da4b-89e5-4116-a4a5-ac9df03b09fc",
+    "question": "How to insert a comment that has more than one line?",
+    "options": [
+      "/*This comment has more than one line*/",
+      "<!--This comment has more than one line-->",
+      "//This comment has more than one line//"
+    ],
+    "correct": "/*This comment has more than one line*/"
+  },
+  {
+    "id": "cccce555-f1ff-4d6a-b582-5e9d726270a0",
+    "question": "What is the correct way to write a JavaScript array?",
+    "options": [
+      "var colors = [\"red\", \"green\", \"blue\"]",
+      "var colors = (1:\"red\", 2:\"green\", 3:\"blue\")",
+      "var colors = 1 = (\"red\"), 2 = (\"green\"), 3 = (\"blue\")",
+      "var colors = \"red\", \"green\", \"blue\""
+    ],
+    "correct": "var colors = [\"red\", \"green\", \"blue\"]"
+  },
+  {
+    "id": "98037538-d037-4754-9e2b-5b8d14d41df6",
+    "question": "How do you round the number 7.25, to the nearest integer?",
+    "options": [
+      "Math.round(7.25)",
+      "Math.rnd(7.25)",
+      "round(7.25)",
+      "rnd(7.25)"
+    ],
+    "correct": "Math.round(7.25)"
+  },
+  {
+    "id": "2475066a-773f-45fb-8d99-2c5f3d4d2410",
+    "question": "How do you find the number with the highest value of x and y?",
+    "options": [
+      "Math.max(x, y)",
+      "Math.ceil(x, y)",
+      "top(x, y)",
+      "ceil(x, y)"
+    ],
+    "correct": "Math.max(x, y)"
+  },
+  {
+    "id": "cfb774a3-a969-4483-bf51-05fbf54ed1b9",
+    "question": "What is the correct JavaScript syntax for opening a new window called \"w2\" ?",
+    "options": [
+      "w2 = window.open(\"http://www.w3schools.com\");",
+      "w2 = window.new(\"http://www.w3schools.com\");"
+    ],
+    "correct": "w2 = window.open(\"http://www.w3schools.com\");"
+  },
+  {
+    "id": "cb85e5d7-c868-442f-84e7-3a1284e3bc52",
+    "question": "JavaScript is the same as Java.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "correct": "False"
+  },
+  {
+    "id": "ce0c248b-fbe5-47e0-8a70-945f1765b282",
+    "question": "How can you detect the client's browser name?",
+    "options": [
+      "browser.name",
+      "client.navName",
+      "navigator.appName"
+    ],
+    "correct": "navigator.appName"
+  },
+  {
+    "id": "b4d28a2b-caf3-4d2a-9766-62d09f61b728",
+    "question": "Which event occurs when the user clicks on an HTML element?",
+    "options": [
+      "onclick",
+      "onmouseclick",
+      "onchange",
+      "onmouseover"
+    ],
+    "correct": "onclick"
+  },
+  {
+    "id": "93609a57-8f0c-4081-9c00-b9915c450b31",
+    "question": "How do you declare a JavaScript variable?",
+    "options": [
+      "var carName;",
+      "variable carName;",
+      "v carName;"
+    ],
+    "correct": "var carName;"
+  },
+  {
+    "id": "554b2781-7099-435c-90f7-49ce276cb910",
+    "question": "Which operator is used to assign a value to a variable?",
+    "options": [
+      "=",
+      "x",
+      "-",
+      "*"
+    ],
+    "correct": "="
+  },
+  {
+    "id": "857e0a32-d409-4b8e-983e-dd5eb2293221",
+    "question": "What will the following code return: Boolean(10 > 9)",
+    "options": [
+      "true",
+      "false",
+      "NaN"
+    ],
+    "correct": "true"
+  },
+  {
+    "id": "0238c649-8f68-4fa9-9585-d85f75f23b6d",
+    "question": "Is JavaScript case-sensitive?",
+    "options": [
+      "Yes",
+      "No"
+    ],
+    "correct": "Yes"
+  }
+]

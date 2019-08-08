@@ -1,0 +1,267 @@
+[
+  {
+    "id": "45ba2bd2-60ac-4e7b-af0c-87fba099832a",
+    "question": "What is a correct syntax to output \"Hello World\" in Python?",
+    "options": [
+      "print(\"Hello World\")",
+      "echo(\"Hello World\");",
+      "echo \"Hello World\"",
+      "p(\"Hello World\")"
+    ],
+    "correct": "print(\"Hello World\")"
+  },
+  {
+    "id": "02cea70e-41b1-45b4-bf9f-a9d4c726c3bc",
+    "question": "How do you insert COMMENTS in Python code?",
+    "options": [
+      "#This is a comment",
+      "/*This is a comment*/",
+      "//This is a comment"
+    ],
+    "correct": "#This is a comment"
+  },
+  {
+    "id": "d4d11da8-d0f0-4401-ae6a-a3239dc3512c",
+    "question": "Which one is NOT a legal variable name?",
+    "options": [
+      "my-var",
+      "my_var",
+      "_myvar",
+      "Myvar"
+    ],
+    "correct": "my-var"
+  },
+  {
+    "id": "a1136536-859a-4184-a2d7-d4872bcdae69",
+    "question": "How do you create a variable with the numeric value 5?",
+    "options": [
+      "Both the other answers are correct",
+      "x = 5",
+      "x = int(5)"
+    ],
+    "correct": "Both the other answers are correct"
+  },
+  {
+    "id": "705bc55c-f04f-4e46-b52f-3bb2c7e89a36",
+    "question": "What is the correct file extension for Python files?",
+    "options": [
+      ".py",
+      ".pyth",
+      ".pt",
+      ".pyt"
+    ],
+    "correct": ".py"
+  },
+  {
+    "id": "9413f678-d62d-4b1c-b7ec-d3f9e75da071",
+    "question": "How do you create a variable with the floating number 2.8?",
+    "options": [
+      "Both the other answers are correct",
+      "x = 2.8",
+      "x = float(2.8)"
+    ],
+    "correct": "Both the other answers are correct"
+  },
+  {
+    "id": "10bd1f9d-ed94-41d8-b397-9140f88f8cb1",
+    "question": "What is the correct syntax to output the type of a variable or object in Python?",
+    "options": [
+      "print(type(x))",
+      "print(typeOf(x))",
+      "print(typeof(x))",
+      "print(typeof x)"
+    ],
+    "correct": "print(type(x))"
+  },
+  {
+    "id": "2fd9c1ed-3557-46ce-8be5-d0fae2846120",
+    "question": "What is the correct way to create a function in Python?",
+    "options": [
+      "def myFunction():",
+      "function myfunction():",
+      "create myFunction():"
+    ],
+    "correct": "def myFunction():"
+  },
+  {
+    "id": "4f0571bd-6481-4eed-b470-d33e4f6c20a4",
+    "question": "In Python, 'Hello', is the same as \"Hello\"",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": "True"
+  },
+  {
+    "id": "8aae4de5-68f4-437c-adc2-f3dfbdc45196",
+    "question": "What is a correct syntax to return the first character in a string?",
+    "options": [
+      "x = \"Hello\"[0]",
+      "x = \"Hello\".sub(0, 1)",
+      "x = sub(\"Hello\", 0, 1)"
+    ],
+    "correct": "x = \"Hello\"[0]"
+  },
+  {
+    "id": "0a9d251a-c4c1-48b9-a17f-cb3bb092601e",
+    "question": "Which method can be used to remove any whitespace from both the beginning and the end of a string?",
+    "options": [
+      "strip()",
+      "len()",
+      "ptrim()",
+      "trim()"
+    ],
+    "correct": "strip()"
+  },
+  {
+    "id": "356be48c-e552-4ef3-aac0-3c5cec74614e",
+    "question": "Which method can be used to return a string in upper case letters?",
+    "options": [
+      "upper()",
+      "upperCase()",
+      "toUpperCase()",
+      "uppercase()"
+    ],
+    "correct": "upper()"
+  },
+  {
+    "id": "666ffca3-37af-4a5d-9aac-55c7941f4fd5",
+    "question": "Which method can be used to replace parts of a string?",
+    "options": [
+      "replace()",
+      "replaceString()",
+      "switch()",
+      "repl()"
+    ],
+    "correct": "replace()"
+  },
+  {
+    "id": "2e55e829-7f39-4044-b7c4-a34e693c803b",
+    "question": "Which operator is used to multiply numbers?",
+    "options": [
+      "*",
+      "%",
+      "#",
+      "x"
+    ],
+    "correct": "*"
+  },
+  {
+    "id": "939e0c47-3e2d-4277-9e39-bdb4cd0cd83f",
+    "question": "Which operator can be used to compare two values?",
+    "options": [
+      "==",
+      "><",
+      "<>",
+      "="
+    ],
+    "correct": "=="
+  },
+  {
+    "id": "78c0f0a3-f5c1-41d4-af85-a3eca258b015",
+    "question": "Which of these collections defines a LIST?",
+    "options": [
+      "[\"apple\", \"banana\", \"cherry\"]",
+      "{\"apple\", \"banana\", \"cherry\"}",
+      "(\"apple\", \"banana\", \"cherry\")",
+      "{\"name\": \"apple\", \"color\": \"green\"}"
+    ],
+    "correct": "[\"apple\", \"banana\", \"cherry\"]"
+  },
+  {
+    "id": "bb749a26-182c-47e1-bb39-4af0da9bacb3",
+    "question": "Which of these collections defines a TUPLE?",
+    "options": [
+      "(\"apple\", \"banana\", \"cherry\")",
+      "{\"name\": \"apple\", \"color\": \"green\"}",
+      "{\"apple\", \"banana\", \"cherry\"}",
+      "[\"apple\", \"banana\", \"cherry\"]"
+    ],
+    "correct": "(\"apple\", \"banana\", \"cherry\")"
+  },
+  {
+    "id": "e08c7354-7922-49ab-a313-419d5856355d",
+    "question": "Which of these collections defines a SET?",
+    "options": [
+      "{\"apple\", \"banana\", \"cherry\"}",
+      "(\"apple\", \"banana\", \"cherry\")",
+      "[\"apple\", \"banana\", \"cherry\"]",
+      "{\"name\": \"apple\", \"color\": \"green\"}"
+    ],
+    "correct": "{\"apple\", \"banana\", \"cherry\"}"
+  },
+  {
+    "id": "dcee70c0-9b1e-4acc-a093-03b8adf71082",
+    "question": "Which of these collections defines a DICTIONARY?",
+    "options": [
+      "{\"name\": \"apple\", \"color\": \"green\"}",
+      "(\"apple\", \"banana\", \"cherry\")",
+      "[\"apple\", \"banana\", \"cherry\"]",
+      "{\"apple\", \"banana\", \"cherry\"}"
+    ],
+    "correct": "{\"name\": \"apple\", \"color\": \"green\"}"
+  },
+  {
+    "id": "78336aba-6cfa-4622-8a68-6fb55759eaba",
+    "question": "Which collection is ordered, changeable, and allows duplicate members?",
+    "options": [
+      "LIST",
+      "SET",
+      "TUPLE",
+      "DICTIONARY"
+    ],
+    "correct": "LIST"
+  },
+  {
+    "id": "90407883-c811-4097-ac36-2b2470c957b1",
+    "question": "Which collection does not allow duplicate members?",
+    "options": [
+      "SET",
+      "TUPLE",
+      "LIST"
+    ],
+    "correct": "SET"
+  },
+  {
+    "id": "860661e2-cd20-4f1c-b01e-a7fa2caaae42",
+    "question": "How do you start writing an if statement in Python?",
+    "options": [
+      "if x > y:",
+      "if (x > y)",
+      "if x > y then:"
+    ],
+    "correct": "if x > y:"
+  },
+  {
+    "id": "6404db36-4ddd-44aa-a125-395042f472a5",
+    "question": "How do you start writing a while loop in Python?",
+    "options": [
+      "while x > y:",
+      "x > y while {",
+      "while x > y {",
+      "while (x > y)"
+    ],
+    "correct": "while x > y:"
+  },
+  {
+    "id": "5af2ae04-1f23-4d78-bb56-d9e276e81ed4",
+    "question": "How do you start writing a for loop in Python?",
+    "options": [
+      "for x in y:",
+      "for x > y:",
+      "for each x in y:"
+    ],
+    "correct": "for x in y:"
+  },
+  {
+    "id": "7c18d73d-b7ba-42e4-b4cb-396d34c943d7",
+    "question": "Which statement is used to stop a loop?",
+    "options": [
+      "break",
+      "exit",
+      "stop",
+      "return"
+    ],
+    "correct": "break"
+  }
+]

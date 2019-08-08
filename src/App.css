@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.small-gap {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.medium-gap {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.large-gap {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.col.s12 button.btn.another-btn {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* .card-action */
+.row.remove-bottom-padding {
+  margin-bottom: 0;
+}
+
+.grey-bg {
+  border: 1.5px dashed grey;
+}
+
+/* .materialboxed{ display: inline-block; } */
+
+/* .center-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; */
+  /* } */
+
+  .responsive-container {
+    width: 300px;
+    border: dashed #333 1.5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.responsive-container img {
+    max-height: 100%;
+    max-width: 100%;
+    margin-bottom: -6px;
+}
+
+.loading-padding {
+    left: 10px; 
+    top: 8px;
+}
+
+.generating-preview {
+    margin-top: -10px;
+    margin-left: 36px;
+}
+
+.page-loader {
+  position: fixed !important;
+  top: 40% !important;
+  bottom: 50% !important;
+  left: 48% !important;
+  right: 48% !important;
+}
+
+.creating-poster {
+  
+}
