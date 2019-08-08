@@ -53,7 +53,7 @@ class Landing extends React.Component {
                 title={APP_NAME}
               />
               <Typography className={classes.description} variant="body1" align="center">
-                {APP_NAME} is a decentralized news aggregator.
+                {APP_NAME} allows you to create short and sweet quizzes on several coding topics.
               </Typography>
             </CardContent>
           </Card>
@@ -70,7 +70,7 @@ class Landing extends React.Component {
               <MuiThemeProvider theme={blueTheme}>
                 <Button size="large" variant="contained" color="primary" align="center" className={classes.ctaButton}>
                     <Link className={classes.iconLink} to="/app/">
-                      Go Ahead
+                      Start Here
                     </Link>
                     <Link className={classes.iconLink} to="/app/">
                       <OpenInNew className={classes.buttonIcon} />
