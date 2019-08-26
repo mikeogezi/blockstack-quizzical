@@ -18,14 +18,15 @@ import {
 } from 'react-router-dom';
 import { UserSession } from 'blockstack';
 import { Box } from '@material-ui/core';
+import FirebaseUtils from './lib/FirebaseUtils';
 
 window.UserSession = UserSession;
 
 export default class App extends React.Component {
   constructor (props) {
     super(props);
-
     this.state = {};
+    FirebaseUtils.init(this);
   }
 
   render () {

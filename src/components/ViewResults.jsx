@@ -43,11 +43,6 @@ import FirebaseUtils from '../lib/FirebaseUtils';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
 
-import js from '../data/js.json';
-import html from '../data/html.json';
-import python from '../data/python.json';
-import sql from '../data/sql.json';
-
 import { 
   withStyles,
   MuiThemeProvider,
@@ -66,42 +61,42 @@ class QuizList extends React.Component {
     super(props);
 
     this.state = {
-      isLoadingQuizzes: false,
-      errorLoadingQuizzes: false,
-      quizzes: [],
-      templates: [ js, html, python, sql ],
+      isLoadingResults: false,
+      errorLoadingResults: false,
+      results: [],
       linkToOpen: ''
     };
     BlockStackUtils.init(this);
   }
 
   componentDidMount () {
-    this._loadQuizzes();
+    this._loadResults();
   }
 
-  _loadQuizzes = async () => {
+  _loadResults = async () => {
     try {
-      this.setState({ isLoadingQuizzes: true });
+      this.setState({ isLoadingResults: true });
       // await new Promise(res => setTimeout(res, 3000));
       // const quizzes = DEMO_QUIZZES;
-      const quizzes = await FirebaseUtils.getCreatedQuizzes(BlockStackUtils.getUsername(this));
+      const quizzes = await FirebaseUtils.getQuizResults(this.props.match.params.quizId);
+      quizzes.sort((lhs, rhs) => lhs.score < rhs.score ? -1 : 1);
       this.setState({ quizzes });
     }
     catch (e) {
-      this.setState({ errorLoadingQuizzes: true });
+      this.setState({ errorLoadingResults: true });
       console.error(e);
     }
     finally {
-      this.setState({ isLoadingQuizzes: false });
+      this.setState({ isLoadingResults: false });
     }
   }
 
   _errorDialogCancel = () => {
-    this.setState({ errorLoadingQuizzes: false });
+    this.setState({ errorLoadingResults: false });
   }
 
   _errorDialogRetry = () => {
-    this.setState({ errorLoadingQuizzes: false });
+    this.setState({ errorLoadingResults: false });
     this._load();
   }
 
@@ -109,13 +104,13 @@ class QuizList extends React.Component {
     return (
       <Dialog
         fullScreen={false}
-        open={this.state.errorLoadingQuizzes}
+        open={this.state.errorLoadingResults}
         onClose={this._errorDialogCancel}
         aria-labelledby="responsive-dialog-title">
         <DialogTitle id="responsive-dialog-title">Loading Error</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            A error occured while we were trying to load your quizzes. Please check your Internet connection then try again.
+            A error occured while we were trying to load your quiz results. Please check your Internet connection then try again.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -130,40 +125,23 @@ class QuizList extends React.Component {
     )
   }
 
-  _renderQuizList = (classes, quizzes) => {
+  _renderQuizResults = (classes, quizzes) => {
     return (
       <List style={{ marginBottom: '16px', width: '90%' }}>
         {
-          quizzes.map(({ title, questions, id }) => (
+          quizzes.map(({ score, email, id }) => (
             <ListItem key={id}>
               <Card className={classes.card}>
                 <CardActionArea>
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {title}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                      {questions.length} Questions
+                    <Typography gutterBottom variant="h6" component="h2">
+                      {score}%
                     </Typography>
                     <Typography variant="button" color="textSecondary">
-                      <Link to={`/app/quizzes/take/${id}/`}>Link To Quiz</Link>
+                      <Link to={`mailto:${email}`}>{email}</Link>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-                <CardActions>
-                <Link style={{ textDecoration: 'none' }} to={`/app/quizzes/view/${id}/`}>
-                    <Button size="large" variant="contained" color="primary">
-                      <ListIcon className={classes.iconInButton} />
-                      Quiz Questions
-                    </Button>
-                  </Link>
-                  <Link style={{ textDecoration: 'none' }} to={`/app/quizzes/view/${id}/results/`}>
-                    <Button size="large" variant="contained" color="primary">
-                      <People className={classes.iconInButton} />
-                      Quiz Results
-                    </Button>
-                  </Link>
-                </CardActions>
               </Card>
             </ListItem>
           ))
@@ -175,8 +153,8 @@ class QuizList extends React.Component {
   render () {
     const { classes } = this.props;
     const { 
-      isLoadingQuizzes, quizzes, 
-      errorLoadingQuizzes, linkToOpen 
+      isLoadingResults, quizzes, 
+      errorLoadingResults, linkToOpen 
     } = this.state;
 
     if (!BlockStackUtils.isSignedInOrPending(this)) {
@@ -194,12 +172,12 @@ class QuizList extends React.Component {
     return (
       <MuiThemeProvider theme={theme}>
         <Box align="center" className={classes.container}>
-          <Header>Your Quizzes</Header>
-          { isLoadingQuizzes && <CircularProgress /> }
+          <Header>Quiz Results</Header>
+          { isLoadingResults && <CircularProgress /> }
           { 
-            quizzes.length ? this._renderQuizList(classes, quizzes) :
-            (errorLoadingQuizzes && !isLoadingQuizzes) ? <Typography variant="body1" align="center">Error Loading Quizzes. Reload the page.</Typography> :
-            (!isLoadingQuizzes) ? <Typography variant="body1" align="center">No Quiz Found.</Typography> :
+            quizzes.length ? this._renderQuizResults(classes, quizzes) :
+            (errorLoadingResults && !isLoadingResults) ? <Typography variant="body1" align="center">Error Loading Quizzes. Reload the page.</Typography> :
+            (!isLoadingResults) ? <Typography variant="body1" align="center">No Quiz Found.</Typography> :
             ''
           }
           { this._renderErrorDialog(classes) }

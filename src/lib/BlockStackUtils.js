@@ -96,8 +96,8 @@ export default class BlockStackUtils {
     return friends;
   }
 
-  static _getUsername (that) {
-    return that.userSession.store.getSessionData().username;
+  static getUsername (that) {
+    return that.userSession.store.getSessionData().username || 'mikeogezi.id.blockstack';
   }
 
   /**
@@ -109,7 +109,7 @@ export default class BlockStackUtils {
    */
   static async loadMessages (that, from, to) {
     return await BlockStackUtils._demoLoadMessages();
-    const username = BlockStackUtils._getUsername(that);
+    const username = BlockStackUtils.getUsername(that);
     BlockStackUtils._assertInit(that);
     const fileStr = await that.userSession
       .getFile(BlockStackUtils._genMessagesFileName(that), { 
@@ -128,7 +128,7 @@ export default class BlockStackUtils {
    * @param {*} to Receiver fullName
    */
   static async sendMessage (that, messageBody, from, to) {
-    const username = BlockStackUtils._getUsername(that);
+    const username = BlockStackUtils.getUsername(that);
     BlockStackUtils._assertInit(that);
     // Read from messages file
     const fileStr = await that.userSession

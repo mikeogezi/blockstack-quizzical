@@ -16,6 +16,7 @@ import {
   CardActions,
   CardActionArea,
   CardMedia,
+  TextField,
   List,
   ListItem,
   ListItemIcon,
@@ -30,6 +31,7 @@ import {
   OpenInNew,
   Share,
   PersonAdd,
+  ArrowForward,
   ExitToApp
 } from '@material-ui/icons';
 import { Link } from 'react-router-dom';
@@ -39,6 +41,8 @@ import {
 } from '../constants/appInfo';
 import { connect } from 'react-redux';
 import BlockStackUtils from '../lib/BlockStackUtils';
+import FirebaseUtils from '../lib/FirebaseUtils';
+import ScoreUtils from '../lib/ScoreUtils';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
 
@@ -69,22 +73,81 @@ class ViewQuiz extends React.Component {
     super(props);
 
     this.state = {
+      isSavingQuiz: false,
+      errorSavingQuiz: false,
       isLoadingQuiz: false,
       errorLoadingQuiz: false,
+      email: '',
       quiz: {},
-      linkToOpen: ''
+      linkToOpen: '',
+      isTake: this.props.isTake,
+      isView: this.props.isView
     };
+    BlockStackUtils.init(this);
   }
 
   componentDidMount () {
     this._loadQuiz();
   }
 
+  _onSubmit = () => {
+    console.log('Submit clicked!');
+  }
+
+  _saveResult = async () => {
+    const { quiz, email } = this.state;
+    try {
+      this.setState({ isSavingQuiz: true });
+      // await new Promise(res => setTimeout(res, 3000));
+      // const quiz = DEMO_QUIZZES[this.props.match.params.quizId];
+      // this.setState({ quiz });
+      await FirebaseUtils.saveQuizResult(this.props.match.params.quizId, { 
+        email,
+        score: ScoreUtils.calculateScore(quiz.questions)
+      });
+    }
+    catch (e) {
+      this.setState({ errorSavingQuiz: true });
+      console.error(e);
+    }
+    finally {
+      this.setState({ isSavingQuiz: false });
+    }
+  }
+
+  _renderSubmitButton = (classes) => {
+    return (
+      <Button className={classes.submitButton} onClick={this._onSubmit}
+        size="large" variant="contained" color="secondary" align="left">      
+        Create Quiz
+        <ArrowForward className={classes.buttonIcon} />
+      </Button>
+    )
+  }
+
+  _renderEmailTextBox = (classes) => {
+    return (
+      <TextField
+          align="left"
+          style={{ backgroundColor: 'white' }}
+          id="outlined-name"
+          label="Email"
+          fullWidth
+          className={classes.textField}
+          value={this.state.email}
+          onChange={e => this.setState({ email: e.target.value })}
+          margin="normal"
+          variant="outlined"
+        />
+    )
+  }
+
   _loadQuiz = async () => {
     try {
       this.setState({ isLoadingQuiz: true });
-      await new Promise(res => setTimeout(res, 3000));
-      const quiz = DEMO_QUIZZES[this.props.match.params.quizId];
+      // await new Promise(res => setTimeout(res, 3000));
+      // const quiz = DEMO_QUIZZES[this.props.match.params.quizId];
+      const quiz = await FirebaseUtils.getCreatedQuiz(this.props.match.params.quizId);
       this.setState({ quiz });
     }
     catch (e) {
@@ -130,6 +193,19 @@ class ViewQuiz extends React.Component {
     )
   }
 
+  _renderAnswerableOptions = (classes, options, correct) => {
+    return this._renderAnswerableOptions(classes, options, correct);
+  }
+
+  _renderUnanswerableOptions = (classes, options, correct) => {
+    return options.map((option, key) => (
+      <ListItem key={key}>
+        <Checkbox color="secondary" checked={option === correct} />
+        <Typography variant="body1">{option}</Typography>
+      </ListItem>
+    ));
+  }
+
   _renderViewQuiz = (classes, { name, questions }) => {
     return (
       <List style={{ marginBottom: '16px', width: '90%' }}>
@@ -147,12 +223,9 @@ class ViewQuiz extends React.Component {
                     </Typography>
                     <List>
                       {
-                        options.map((option, key) => (
-                          <ListItem key={key}>
-                            <Checkbox color="secondary" checked={option === correct} />
-                            <Typography variant="body1">{option}</Typography>
-                          </ListItem>
-                        ))
+                        this.state.isTake ?
+                        this._renderAnswerableOptions(classes, options, correct) :
+                        this._renderUnanswerableOptions(classes, options, correct)
                       }
                     </List>
                   </CardContent>
@@ -168,11 +241,11 @@ class ViewQuiz extends React.Component {
   render () {
     const { classes } = this.props;
     const { 
-      isLoadingQuiz, quiz, 
+      isLoadingQuiz, quiz, isTake, isView,
       errorLoadingQuiz, linkToOpen 
     } = this.state;
 
-    if (BlockStackUtils.isSignedInOrPending(this)) {
+    if (!BlockStackUtils.isSignedInOrPending(this)) {
       return (
         <Redirect to="/sign-in/" />
       )
@@ -184,16 +257,19 @@ class ViewQuiz extends React.Component {
       )
     }
 
+    // If quiz is being taken then ask for email and name
     return (
       <Box align="center" className={classes.container}>
-        <Header>{quiz.title || 'Quiz'}</Header>
+        <Header>{isView ? (quiz.title || 'Quiz') : `Good Luck In ${quiz.title || 'The Quiz'}`}</Header>
         { isLoadingQuiz && <CircularProgress color="secondary" /> }
+        { isTake && this._renderEmailTextBox(classes) }
         { 
           quiz.questions ? <MuiThemeProvider theme={theme}>{this._renderViewQuiz(classes, quiz)}</MuiThemeProvider> :
           (errorLoadingQuiz && !isLoadingQuiz) ? <Typography variant="body1" align="center">Error Loading Quiz. Reload the page.</Typography> :
           (!isLoadingQuiz) ? <Typography variant="body1" align="center">Quiz Not Found.</Typography> :
           ''
         }
+        { isTake && this._renderSubmitButton(classes) }
         { this._renderErrorDialog(classes) }
       </Box>
     );
@@ -214,6 +290,15 @@ const styles = theme => ({
   iconInButton: {
     marginRight: theme.spacing(2),
   },
+  submitButton: {
+    float: 'left !important',
+    paddingRight: theme.spacing(2.25),
+    paddingLeft: theme.spacing(2.25),
+    paddingTop: theme.spacing(1.75),
+    paddingBottom: theme.spacing(1.75),
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1)
+  }
 });
 
 export default withStyles(styles)(ViewQuiz);

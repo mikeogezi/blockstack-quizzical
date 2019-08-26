@@ -38,10 +38,11 @@ import {
 import { Link } from 'react-router-dom';
 import { 
   APP_NAME,
-  DEMO_QUIZZES
+  DEMO_QUIZZES as QUIZ_TEMPLATES
 } from '../constants/appInfo';
 import { connect } from 'react-redux';
 import BlockStackUtils from '../lib/BlockStackUtils';
+import FirebaseUtils from '../lib/FirebaseUtils';
 import Header from './Header';
 import { Redirect } from 'react-router-dom';
 
@@ -84,6 +85,7 @@ class ViewQuiz extends React.Component {
       selectedIds: [],
       selectedCounts: []
     };
+    BlockStackUtils.init(this);
   }
 
   _errorDialogCancel = () => {
@@ -225,7 +227,7 @@ class ViewQuiz extends React.Component {
             <br />
             <hr />
             { 
-              DEMO_QUIZZES.map(({ title, questions }) => (
+              QUIZ_TEMPLATES.map(({ title, questions }) => (
                 <Button key={title} className={classes.button} align="left"
                   variant="outlined" color="secondary" size="large"
                   onClick={e => {
@@ -269,7 +271,7 @@ class ViewQuiz extends React.Component {
               </TableHead>
               <TableBody>
                 { 
-                  DEMO_QUIZZES.map(({ title, questions }) => (
+                  QUIZ_TEMPLATES.map(({ title, questions }) => (
                     <TableRow key={title}>
                       <TableCell>{title}</TableCell>
                       <TableCell>{selectedCounts[title] || 0}</TableCell>
@@ -365,21 +367,21 @@ class ViewQuiz extends React.Component {
     this._saveQuiz(this._getDocument());
   }
 
-  getDocument () {
+  _getDocument () {
     const { selectedIds, title } = this.state;
     return {
-      id: uuid.v4(),
       title,
-      questions: _.flatten(DEMO_QUIZZES
+      questions: _.flatten(QUIZ_TEMPLATES
                     .map(({ questions }) => questions))
                     .filter((({ id }) => selectedIds.includes(id)))
     };
   }
 
-  _saveQuiz = async () => {
+  _saveQuiz = async (doc) => {
     try {
       this.setState({ isSavingQuiz: true });
-      await new Promise(res => setTimeout(res, 3000));
+      // await new Promise(res => setTimeout(res, 3000));
+      await FirebaseUtils.saveCreatedQuiz(BlockStackUtils.getUsername(this), { ...doc });
       this.setState({ linkToOpen: '/app/quizzes/list/' });
     }
     catch (e) {
@@ -399,7 +401,7 @@ class ViewQuiz extends React.Component {
       errorSavingQuiz, linkToOpen 
     } = this.state;
 
-    if (BlockStackUtils.isSignedInOrPending(this)) {
+    if (!BlockStackUtils.isSignedInOrPending(this)) {
       return (
         <Redirect to="/sign-in/" />
       )
