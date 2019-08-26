@@ -70,7 +70,7 @@ class QuizCreated extends React.Component {
   }
 
   _getQuizLink = () => {
-    return `/app/quizzes/take/${this.state.quizId}`;
+    return `/app/quizzes/take/${this.state.quizId}/`;
   }
 
   render () {

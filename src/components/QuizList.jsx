@@ -143,10 +143,10 @@ class QuizList extends React.Component {
                       {title}
                     </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                      {questions.length} Questions
+                      {questions.length} Question{questions.length > 1 ? 's' : ''}
                     </Typography>
                     <Typography variant="button" color="textSecondary">
-                      <Link to={`/app/quizzes/take/${id}/`}>Link To Quiz</Link>
+                      <Link to={`/app/quizzes/take/${id}/`}>Link To Take Quiz</Link>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -160,7 +160,7 @@ class QuizList extends React.Component {
                   <Link style={{ textDecoration: 'none' }} to={`/app/quizzes/view/${id}/results/`}>
                     <Button size="large" variant="contained" color="primary">
                       <People className={classes.iconInButton} />
-                      Quiz Results
+                      Quiz Responses
                     </Button>
                   </Link>
                 </CardActions>

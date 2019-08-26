@@ -95,6 +95,7 @@ export default class FirebaseUtils {
       let res = await this._db.collection(QUIZ_COLLECTION_NAME)
         .doc(quizId)
         .get();
+      res = res.data();
       console.log(`Created Quiz ${quizId}:`, res);
       return res;
     }
@@ -112,9 +113,10 @@ export default class FirebaseUtils {
   static async saveCreatedQuiz (username, { questions, title }) {
     try {
       const id = uuid.v4();
-      return await this._db.collection(QUIZ_COLLECTION_NAME)
+      await this._db.collection(QUIZ_COLLECTION_NAME)
         .doc(id)
         .set({ username, questions, title, id });
+      return id;
     }
     catch (e) {
       console.error(e);
@@ -147,12 +149,12 @@ export default class FirebaseUtils {
    * @param object resultDetails
    * @return void
    */
-  static async saveQuizResult (quizId, { email, score }) {
+  static async saveQuizResult (quizId, { email, score, time }) {
     try {
       const id = uuid.v4();
       await this._db.collection(RESULT_COLLECTION_NAME)
         .doc(id)
-        .set({ quizId, email, score, id });
+        .set({ quizId, email, score, time, id });
     }
     catch (e) {
       console.error(e);

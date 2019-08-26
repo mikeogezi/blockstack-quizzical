@@ -91,7 +91,13 @@ class ViewQuiz extends React.Component {
   }
 
   _onSubmit = () => {
-    console.log('Submit clicked!');
+    console.log('Submit Clicked!');
+    // const { email, quiz } = this.state;
+    // console.log({ 
+    //   email,
+    //   score: ScoreUtils.calculateScore(quiz.questions)
+    // });
+    this._saveResult();
   }
 
   _saveResult = async () => {
@@ -101,10 +107,19 @@ class ViewQuiz extends React.Component {
       // await new Promise(res => setTimeout(res, 3000));
       // const quiz = DEMO_QUIZZES[this.props.match.params.quizId];
       // this.setState({ quiz });
-      await FirebaseUtils.saveQuizResult(this.props.match.params.quizId, { 
+      if (!email) {
+        this.setState({ errorSavingQuiz: true });
+        console.error('Email not entered');
+        return;
+      }
+      const quizId = this.props.match.params.quizId;
+      await FirebaseUtils.saveQuizResult(quizId, { 
         email,
-        score: ScoreUtils.calculateScore(quiz.questions)
+        score: ScoreUtils.calculateScore(quiz.questions),
+        time: (new Date()).toGMTString()
       });
+      console.log('Successfully saved result to database');
+      this.setState({ linkToOpen: `/app/quizzes/taken/${quizId}/` });
     }
     catch (e) {
       this.setState({ errorSavingQuiz: true });
@@ -117,11 +132,13 @@ class ViewQuiz extends React.Component {
 
   _renderSubmitButton = (classes) => {
     return (
-      <Button className={classes.submitButton} onClick={this._onSubmit}
-        size="large" variant="contained" color="secondary" align="left">      
-        Create Quiz
-        <ArrowForward className={classes.buttonIcon} />
-      </Button>
+      <Box style={{ width: '87%' }}>
+        <Button className={classes.submitButton} onClick={this._onSubmit}
+          size="large" variant="contained" color="secondary" align="left">      
+          Submit Quiz
+          <ArrowForward className={classes.buttonIcon} style={{ marginLeft: '16px' }} />
+        </Button>
+      </Box>
     )
   }
 
@@ -129,9 +146,9 @@ class ViewQuiz extends React.Component {
     return (
       <TextField
           align="left"
-          style={{ backgroundColor: 'white' }}
+          style={{ backgroundColor: 'white', width: '87%' }}
           id="outlined-name"
-          label="Email"
+          label="Your Email"
           fullWidth
           className={classes.textField}
           value={this.state.email}
@@ -160,25 +177,30 @@ class ViewQuiz extends React.Component {
   }
 
   _errorDialogCancel = () => {
-    this.setState({ errorLoadingQuiz: false });
+    const { errorLoadingQuiz, errorSavingQuiz } = this.state;
+    errorLoadingQuiz ? 
+      this.setState({ errorLoadingQuiz: false }) : 
+      errorSavingQuiz && this.setState({ errorSavingQuiz: false });
   }
 
   _errorDialogRetry = () => {
+    const { errorLoadingQuiz, errorSavingQuiz } = this.state;
     this.setState({ errorLoadingQuiz: false });
-    this._loadQuiz();
+    errorLoadingQuiz ? this._loadQuiz() : (errorSavingQuiz && this._saveResult());
   }
 
   _renderErrorDialog = (classes) => {
+    const { errorLoadingQuiz, errorSavingQuiz } = this.state;
     return (
       <Dialog
         fullScreen={false}
-        open={this.state.errorLoadingQuiz}
+        open={errorLoadingQuiz || errorSavingQuiz}
         onClose={this._errorDialogCancel}
         aria-labelledby="responsive-dialog-title">
-        <DialogTitle id="responsive-dialog-title">Loading Error</DialogTitle>
+        <DialogTitle id="responsive-dialog-title">{errorLoadingQuiz ? 'Loading' : 'Saving'} Error</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            A error occured while we were trying to load your quiz. Please check your Internet connection then try again.
+            A error occured while we were trying to {errorLoadingQuiz ? 'load' : 'save'} your quiz. Please check your Internet connection {errorLoadingQuiz ? '' : 'and check that you\'ve filled in your email'} then try again.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -193,8 +215,27 @@ class ViewQuiz extends React.Component {
     )
   }
 
-  _renderAnswerableOptions = (classes, options, correct) => {
-    return this._renderAnswerableOptions(classes, options, correct);
+  _renderAnswerableOptions = (classes, id, options, correct, selected) => {
+    // return this._renderUnanswerableOptions(classes, options, correct);
+    return options.map((option, key) => (
+      <ListItem key={key}>
+        <Checkbox color="secondary" checked={option === selected} 
+          onClick={e => this._selectOption(id, option)} />
+        <Typography variant="body1">{option}</Typography>
+      </ListItem>
+    ));
+  }
+
+  _selectOption = (id, option) => {
+    const { quiz } = this.state;
+    for (let i in quiz.questions) {
+      if (quiz.questions[i].id === id) {
+        console.log(`Selected option ${option} in question ${id}`);
+        quiz.questions[i].selected = option;
+        break;
+      }
+    }
+    this.setState({ quiz });
   }
 
   _renderUnanswerableOptions = (classes, options, correct) => {
@@ -210,7 +251,7 @@ class ViewQuiz extends React.Component {
     return (
       <List style={{ marginBottom: '16px', width: '90%' }}>
         {
-          questions.map(({ id, question, options, correct }, i) => (
+          questions.map(({ id, question, options, correct, selected }, i) => (
             <ListItem key={id}>
               <Card className={classes.card}>
                 <CardActionArea>
@@ -224,7 +265,7 @@ class ViewQuiz extends React.Component {
                     <List>
                       {
                         this.state.isTake ?
-                        this._renderAnswerableOptions(classes, options, correct) :
+                        this._renderAnswerableOptions(classes, id, options, correct, selected) :
                         this._renderUnanswerableOptions(classes, options, correct)
                       }
                     </List>
@@ -238,6 +279,20 @@ class ViewQuiz extends React.Component {
     )
   }
 
+  _renderSavingDialog = (classes) => {
+    return (
+      <Dialog
+        fullScreen={false}
+        open={this.state.isSavingQuiz}
+        aria-labelledby="loading-dialog-title">
+        <DialogTitle id="loading-dialog-title">Saving Your Results</DialogTitle>
+        <DialogContent align="center" style={{ padding: '32px', marginBottom: '16px' }}>
+          <CircularProgress color="secondary" />
+        </DialogContent>
+      </Dialog>
+    )
+  }
+
   render () {
     const { classes } = this.props;
     const { 
@@ -245,7 +300,7 @@ class ViewQuiz extends React.Component {
       errorLoadingQuiz, linkToOpen 
     } = this.state;
 
-    if (!BlockStackUtils.isSignedInOrPending(this)) {
+    if (!BlockStackUtils.isSignedInOrPending(this) && isView) {
       return (
         <Redirect to="/sign-in/" />
       )
@@ -262,15 +317,16 @@ class ViewQuiz extends React.Component {
       <Box align="center" className={classes.container}>
         <Header>{isView ? (quiz.title || 'Quiz') : `Good Luck In ${quiz.title || 'The Quiz'}`}</Header>
         { isLoadingQuiz && <CircularProgress color="secondary" /> }
-        { isTake && this._renderEmailTextBox(classes) }
+        { !isLoadingQuiz && isTake && this._renderEmailTextBox(classes) }
         { 
           quiz.questions ? <MuiThemeProvider theme={theme}>{this._renderViewQuiz(classes, quiz)}</MuiThemeProvider> :
           (errorLoadingQuiz && !isLoadingQuiz) ? <Typography variant="body1" align="center">Error Loading Quiz. Reload the page.</Typography> :
           (!isLoadingQuiz) ? <Typography variant="body1" align="center">Quiz Not Found.</Typography> :
           ''
         }
-        { isTake && this._renderSubmitButton(classes) }
+        { !isLoadingQuiz && isTake && this._renderSubmitButton(classes) }
         { this._renderErrorDialog(classes) }
+        { this._renderSavingDialog(classes) }
       </Box>
     );
   }

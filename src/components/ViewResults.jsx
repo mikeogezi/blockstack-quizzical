@@ -78,9 +78,9 @@ class QuizList extends React.Component {
       this.setState({ isLoadingResults: true });
       // await new Promise(res => setTimeout(res, 3000));
       // const quizzes = DEMO_QUIZZES;
-      const quizzes = await FirebaseUtils.getQuizResults(this.props.match.params.quizId);
-      quizzes.sort((lhs, rhs) => lhs.score < rhs.score ? -1 : 1);
-      this.setState({ quizzes });
+      const results = await FirebaseUtils.getQuizResults(this.props.match.params.quizId);
+      results.sort((lhs, rhs) => lhs.score < rhs.score ? -1 : 1);
+      this.setState({ results });
     }
     catch (e) {
       this.setState({ errorLoadingResults: true });
@@ -125,20 +125,20 @@ class QuizList extends React.Component {
     )
   }
 
-  _renderQuizResults = (classes, quizzes) => {
+  _renderQuizResults = (classes, results) => {
     return (
       <List style={{ marginBottom: '16px', width: '90%' }}>
         {
-          quizzes.map(({ score, email, id }) => (
+          results.map(({ score, email, time, id }) => (
             <ListItem key={id}>
               <Card className={classes.card}>
                 <CardActionArea>
                   <CardContent>
                     <Typography gutterBottom variant="h6" component="h2">
-                      {score}%
+                      Score: {Number(score).toFixed()}%
                     </Typography>
                     <Typography variant="button" color="textSecondary">
-                      <Link to={`mailto:${email}`}>{email}</Link>
+                      Email: <a href={`mailto:${email}`}>{email}</a>
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -153,7 +153,7 @@ class QuizList extends React.Component {
   render () {
     const { classes } = this.props;
     const { 
-      isLoadingResults, quizzes, 
+      isLoadingResults, results, 
       errorLoadingResults, linkToOpen 
     } = this.state;
 
@@ -175,9 +175,9 @@ class QuizList extends React.Component {
           <Header>Quiz Results</Header>
           { isLoadingResults && <CircularProgress /> }
           { 
-            quizzes.length ? this._renderQuizResults(classes, quizzes) :
-            (errorLoadingResults && !isLoadingResults) ? <Typography variant="body1" align="center">Error Loading Quizzes. Reload the page.</Typography> :
-            (!isLoadingResults) ? <Typography variant="body1" align="center">No Quiz Found.</Typography> :
+            results.length ? this._renderQuizResults(classes, results) :
+            (errorLoadingResults && !isLoadingResults) ? <Typography variant="body1" align="center">Error Loading Results. Reload the page.</Typography> :
+            (!isLoadingResults) ? <Typography variant="body1" align="center">No Results Yet.</Typography> :
             ''
           }
           { this._renderErrorDialog(classes) }

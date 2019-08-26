@@ -381,8 +381,9 @@ class ViewQuiz extends React.Component {
     try {
       this.setState({ isSavingQuiz: true });
       // await new Promise(res => setTimeout(res, 3000));
-      await FirebaseUtils.saveCreatedQuiz(BlockStackUtils.getUsername(this), { ...doc });
-      this.setState({ linkToOpen: '/app/quizzes/list/' });
+      const quizId = await FirebaseUtils.saveCreatedQuiz(BlockStackUtils.getUsername(this), { ...doc });
+      console.log('Successfully saved quiz to database');
+      this.setState({ linkToOpen: `/app/quizzes/created/${quizId}/` });
     }
     catch (e) {
       this.setState({ errorSavingQuiz: true });

@@ -58,17 +58,7 @@ class Navbar extends React.Component {
     return [
       { title: 'Log Out', icon: <ExitToApp className={classes.iconInButton} />, link: '/log-out/', div: true },
       { title: 'Sign In', icon: <OpenInNew className={classes.iconInButton} />, link: '/sign-in/', div: true },
-      { title: 'Home', icon: <Home className={classes.iconInButton} />, link: '/app/', div: true },
-      // { title: 'Breaking News', icon: <NewReleases className={classes.iconInButton} />, link: '/app/categories/breaking/', min: true },
-      // { title: 'Technology', icon: <Phonelink className={classes.iconInButton} />, link: '/app/categories/technology/', min: true },
-      // { title: 'Politics', icon: <Info className={classes.iconInButton} />, link: '/app/categories/politics/', min: true },
-      // { title: 'Business', icon: <BusinessCenter className={classes.iconInButton} />, link: '/app/categories/business/', min: true },
-      // { title: 'Science', icon: <AccountBalance className={classes.iconInButton} />, link: '/app/categories/science/', min: true },
-      // { title: 'Energy', icon: <Info className={classes.iconInButton} />, link: '/app/categories/energy/', min: true },
-      // { title: 'Health', icon: <Favorite className={classes.iconInButton} />, link: '/app/categories/health/', min: true },
-      // { title: 'Entertainment', icon: <Movie className={classes.iconInButton} />, link: '/app/categories/entertainment/', min: true },
-      // { title: 'Education', icon: <Info className={classes.iconInButton} />, link: '/app/categories/education/', min: true },
-      // { title: 'Sports', icon: <DirectionsRun className={classes.iconInButton} />, link: '/app/categories/sports/', min: true, div: true },
+      { title: 'App', icon: <Home className={classes.iconInButton} />, link: '/app/', div: true }
     ];
   }
 
@@ -80,7 +70,7 @@ class Navbar extends React.Component {
     else if (title === 'Sign In' && !BlockStackUtils.isSignedInOrPending(this)) {
       return 'block';
     }
-    else if (title === 'Home' || categories.includes(title)) {
+    else if (['App', 'Home'].includes(title) || categories.includes(title)) {
       return 'block'
     }
     else {
