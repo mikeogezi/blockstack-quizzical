@@ -3,12 +3,12 @@
   "name": "Quizzical",
   "icons": [
     {
-      "src": "https://quizzical.mklm.xyz/favicon.png",
+      "src": "favicon.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "https://quizzical.mklm.xyz/favicon.ico",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
